@@ -337,6 +337,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot7
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &93827854 stripped
@@ -572,6 +577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot2
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &272052787 stripped
@@ -912,6 +922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot11
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &583711983 stripped
@@ -1049,6 +1064,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot4
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &588215382 stripped
@@ -1186,6 +1206,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot8
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &624913058 stripped
@@ -1323,6 +1348,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot3
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &628965776 stripped
@@ -1460,6 +1490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot9
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &745157890 stripped
@@ -1682,6 +1717,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot10
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &778689477 stripped
@@ -1916,6 +1956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot5
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &1568839065 stripped
@@ -2053,6 +2098,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot6
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &1606292553 stripped
@@ -2190,6 +2240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot1
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &1653667418 stripped
@@ -2331,6 +2386,8 @@ MonoBehaviour:
   - {fileID: 745157891}
   - {fileID: 778689478}
   - {fileID: 583711984}
+  inventoryBarDraggedItem: {fileID: 3351739747938516280, guid: 59b5887ce8240794d801bc9a1db3e293,
+    type: 3}
 --- !u!114 &2111271063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3426,6 +3483,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIInventorySlot0
       objectReference: {fileID: 0}
+    - target: {fileID: 6669861244576200052, guid: 44dbb913f6b379843b90d10c0e0e13a8,
+        type: 3}
+      propertyPath: inventoryBar
+      value: 
+      objectReference: {fileID: 2111271062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44dbb913f6b379843b90d10c0e0e13a8, type: 3}
 --- !u!224 &7656990741919508409 stripped

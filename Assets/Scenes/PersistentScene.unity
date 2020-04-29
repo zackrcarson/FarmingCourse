@@ -1082,7 +1082,7 @@ MonoBehaviour:
   fadeDuration: 1
   faderCanvasGroup: {fileID: 408894055}
   faderImage: {fileID: 408894052}
-  startingSceneName: 1
+  startingSceneName: 0
 --- !u!4 &525958937
 Transform:
   m_ObjectHideFlags: 0

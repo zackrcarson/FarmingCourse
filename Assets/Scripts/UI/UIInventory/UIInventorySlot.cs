@@ -1,10 +1,9 @@
-﻿
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class UIInventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     private Camera mainCamera;
     private Canvas parentCanvas;
@@ -32,20 +31,15 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
         EventHandler.AfterSceneLoadEvent -= SceneLoaded;
     }
 
-
     private void OnEnable()
     {
         EventHandler.AfterSceneLoadEvent += SceneLoaded;
     }
 
-
-
     private void Start()
     {
         mainCamera = Camera.main;
-
     }
-
 
     /// <summary>
     /// Sets this inventory slot item to be selected
@@ -73,10 +67,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
         {
             Player.Instance.ClearCarriedItem();
         }
-
     }
-
-
 
     private void ClearSelectedItem()
     {
@@ -90,9 +81,7 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
 
         // Clear player carrying item
         Player.Instance.ClearCarriedItem();
-
     }
-
 
     /// <summary>
     /// Drops the item (if selected) at the current mouse position.  Called by the DropItem event.
@@ -101,24 +90,28 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
     {
         if (itemDetails != null && isSelected)
         {
-
             Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -mainCamera.transform.position.z));
 
-            // Create item from prefab at mouse position
-            GameObject itemGameObject = Instantiate(itemPrefab, worldPosition, Quaternion.identity, parentItem);
-            Item item = itemGameObject.GetComponent<Item>();
-            item.ItemCode = itemDetails.itemCode;
+            // If can drop item here
+            Vector3Int gridPosition = GridPropertiesManager.Instance.grid.WorldToCell(worldPosition);
+            GridPropertyDetails gridPropertyDetails = GridPropertiesManager.Instance.GetGridPropertyDetails(gridPosition.x, gridPosition.y);
 
-            // Remove item from players inventory
-            InventoryManager.Instance.RemoveItem(InventoryLocation.player, item.ItemCode);
-
-            // If no more of item then clear selected
-            if (InventoryManager.Instance.FindItemInInventory(InventoryLocation.player, item.ItemCode) == -1)
+            if (gridPropertyDetails != null && gridPropertyDetails.canDropItem)
             {
-                ClearSelectedItem();
+                // Create item from prefab at mouse position
+                GameObject itemGameObject = Instantiate(itemPrefab, new Vector3( worldPosition.x, worldPosition.y - Settings.gridCellSize/2f, worldPosition.z), Quaternion.identity, parentItem);
+                Item item = itemGameObject.GetComponent<Item>();
+                item.ItemCode = itemDetails.itemCode;
+
+                // Remove item from players inventory
+                InventoryManager.Instance.RemoveItem(InventoryLocation.player, item.ItemCode);
+
+                // If no more of item then clear selected
+                if (InventoryManager.Instance.FindItemInInventory(InventoryLocation.player, item.ItemCode) == -1)
+                {
+                    ClearSelectedItem();
+                }
             }
-
-
         }
     }
 
@@ -137,7 +130,6 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
             draggedItemImage.sprite = inventorySlotImage.sprite;
 
             SetSelectedItem();
-
         }
     }
 
@@ -171,7 +163,6 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
 
                 // Clear selected item
                 ClearSelectedItem();
-
             }
             // else attempt to drop the item if it can be dropped
             else
@@ -206,7 +197,6 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
             }
         }
     }
-
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -257,6 +247,4 @@ public class UIInventorySlot : MonoBehaviour, IBeginDragHandler,IDragHandler,IEn
     {
         parentItem = GameObject.FindGameObjectWithTag(Tags.ItemsParentTransform).transform;
     }
-
 }
-

@@ -4,6 +4,8 @@ using UnityEngine;
 public class Player : SingletonMonobehaviour<Player>
 {
     private AnimationOverrides animationOverrides;
+    private GridCursor gridCursor;
+
     // Movement Parameters
     private float xInput;
 
@@ -69,6 +71,12 @@ public class Player : SingletonMonobehaviour<Player>
         mainCamera = Camera.main;
     }
 
+    private void Start()
+    {
+        gridCursor = FindObjectOfType<GridCursor>();
+    }
+
+
     private void Update()
     {
         #region Player Input
@@ -81,7 +89,10 @@ public class Player : SingletonMonobehaviour<Player>
 
             PlayerWalkInput();
 
+            PlayerClickInput();
+
             PlayerTestInput();
+
 
             // Send event to any listeners for player movement input
             EventHandler.CallMovementEvent(xInput, yInput, isWalking, isRunning, isIdle, isCarrying, toolEffect,
@@ -189,6 +200,71 @@ public class Player : SingletonMonobehaviour<Player>
             movementSpeed = Settings.runningSpeed;
         }
     }
+
+    private void PlayerClickInput()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (gridCursor.CursorIsEnabled)
+            {
+                ProcessPlayerClickInput();
+            }
+        }
+    }
+
+    private void ProcessPlayerClickInput()
+    {
+        ResetMovement();
+
+        // Get Selected item details
+        ItemDetails itemDetails = InventoryManager.Instance.GetSelectedInventoryItemDetails(InventoryLocation.player);
+
+        if (itemDetails != null)
+        {
+            switch (itemDetails.itemType)
+            {
+                case ItemType.Seed:
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        ProcessPlayerClickInputSeed(itemDetails);
+                    }
+                    break;
+
+                case ItemType.Commodity:
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        ProcessPlayerClickInputCommodity(itemDetails);
+                    }
+                    break;
+
+                case ItemType.none:
+                    break;
+
+                case ItemType.count:
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void ProcessPlayerClickInputSeed(ItemDetails itemDetails)
+    {
+        if (itemDetails.canBeDropped && gridCursor.CursorPositionIsValid)
+        {
+            EventHandler.CallDropSelectedItemEvent();
+        }
+    }
+
+    private void ProcessPlayerClickInputCommodity(ItemDetails itemDetails)
+    {
+        if (itemDetails.canBeDropped && gridCursor.CursorPositionIsValid)
+        {
+            EventHandler.CallDropSelectedItemEvent();
+        }
+    }
+
 
 
     // TODO: Remove

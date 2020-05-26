@@ -5,6 +5,9 @@ public class Crop : MonoBehaviour
 {
     private int harvestActionCount = 0;
 
+    [Tooltip("This should be populated from child transform gameobject showing harvest effect spawn point")]
+    [SerializeField] private Transform harvestActionEffectTransform = null;
+
     [Tooltip("This should be populated from child gameobject")]
     [SerializeField] private SpriteRenderer cropHarvestedSpriteRenderer = null;
 
@@ -46,6 +49,11 @@ public class Crop : MonoBehaviour
             }
         }
 
+        // Trigger tool particle effect on crop
+        if (cropDetails.isHarvestActionEffect)
+        {
+            EventHandler.CallHarvestActionEffectEvent(harvestActionEffectTransform.position, cropDetails.harvestActionEffect);
+        }
 
 
         // Get required harvest actions for tool

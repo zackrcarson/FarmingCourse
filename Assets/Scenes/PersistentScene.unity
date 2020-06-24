@@ -7940,6 +7940,7 @@ MonoBehaviour:
     type: 3}
   inputShirtStyleNo: 0
   inputSex: 0
+  inputTrouserColor: {r: 0.19680746, g: 0.4339623, b: 0.055268783, a: 1}
 --- !u!1001 &1011571095
 PrefabInstance:
   m_ObjectHideFlags: 0

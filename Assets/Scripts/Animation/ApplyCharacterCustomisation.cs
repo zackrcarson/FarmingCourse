@@ -40,6 +40,11 @@ public class ApplyCharacterCustomisation : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private int inputSex = 0;
 
+
+    // Select Trouser Color
+    [SerializeField] private Color inputTrouserColor = Color.blue;
+
+
     private Facing[,] bodyFacingArray;
     private Vector2Int[,] bodyShirtOffsetArray;
 
@@ -77,6 +82,8 @@ public class ApplyCharacterCustomisation : MonoBehaviour
         ProcessShirt();
 
         ProcessArms();
+
+        ProcessTrousers();
 
         MergeCustomisations();
     }
@@ -140,12 +147,28 @@ public class ApplyCharacterCustomisation : MonoBehaviour
         farmerBaseCustomised.Apply();
     }
 
+    private void ProcessTrousers()
+    {
+        // Get trouser pixels to recolor
+        Color[] farmerTrouserPixels = farmerBaseTexture.GetPixels(288, 0, 96, farmerBaseTexture.height);
+
+        // Change trouser colours
+        TintPixelColors(farmerTrouserPixels, inputTrouserColor);
+
+        // Set changed trouser pixels
+        farmerBaseCustomised.SetPixels(288, 0, 96, farmerBaseTexture.height, farmerTrouserPixels);
+
+        // Apply texture changes
+        farmerBaseCustomised.Apply();
+
+    }
+
     private void MergeCustomisations()
     {
         // Farmer Shirt Pixels
         Color[] farmerShirtPixels = farmerBaseShirtsUpdated.GetPixels(0, 0, bodyColumns * farmerSpriteWidth, farmerBaseTexture.height);
         // Farmer Trouser Pixels
-        Color[] farmerTrouserPixelsSelection = farmerBaseTexture.GetPixels(288, 0, 96, farmerBaseTexture.height);
+        Color[] farmerTrouserPixelsSelection = farmerBaseCustomised.GetPixels(288, 0, 96, farmerBaseTexture.height);
 
         // Farmer Body Pixels
         Color[] farmerBodyPixels = farmerBaseCustomised.GetPixels(0, 0, bodyColumns * farmerSpriteWidth, farmerBaseTexture.height);
@@ -159,6 +182,18 @@ public class ApplyCharacterCustomisation : MonoBehaviour
         // Apply texture changes
         farmerBaseCustomised.Apply();
     }
+
+    private void TintPixelColors(Color[] basePixelArray, Color tintColor)
+    {
+        // Loop through pixels to tint
+        for (int i = 0; i < basePixelArray.Length; i++)
+        {
+            basePixelArray[i].r = basePixelArray[i].r * tintColor.r;
+            basePixelArray[i].g = basePixelArray[i].g * tintColor.g;
+            basePixelArray[i].b = basePixelArray[i].b * tintColor.b;
+        }
+    }
+
 
 
     private void PopulateArmColorSwapList()

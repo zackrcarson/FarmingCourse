@@ -22,11 +22,13 @@ public class ApplyCharacterCustomisation : MonoBehaviour
     [SerializeField] private Texture2D maleFarmerBaseTexture = null;
     [SerializeField] private Texture2D femaleFarmerBaseTexture = null;
     [SerializeField] private Texture2D shirtsBaseTexture = null;
+    [SerializeField] private Texture2D hairBaseTexture = null;
     private Texture2D farmerBaseTexture;
 
     // Created Textures
     [Header("OutputBase Texture To Be Used For Animation")]
     [SerializeField] private Texture2D farmerBaseCustomised = null;
+    [SerializeField] private Texture2D hairCustomised = null;
     private Texture2D farmerBaseShirtsUpdated;
     private Texture2D selectedShirt;
 
@@ -35,11 +37,18 @@ public class ApplyCharacterCustomisation : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private int inputShirtStyleNo = 0;
 
+    // Select Hair Style
+    [Header("Select Hair Style")]
+    [Range(0, 2)]
+    [SerializeField] private int inputHairStyleNo = 0;
+
     // Select Sex
     [Header("Select Sex: 0=Male, 1=Female")]
     [Range(0, 1)]
     [SerializeField] private int inputSex = 0;
 
+    // Select Hair Color
+    [SerializeField] private Color inputHairColor = Color.black;
 
     // Select Trouser Color
     [SerializeField] private Color inputTrouserColor = Color.blue;
@@ -58,6 +67,10 @@ public class ApplyCharacterCustomisation : MonoBehaviour
     private int shirtSpriteWidth = 9;
     private int shirtSpriteHeight = 9;
     private int shirtStylesInSpriteWidth = 16;
+
+    private int hairTextureWidth = 16;
+    private int hairTextureHeight = 96;
+    private int hairStylesInSpriteWidth = 8;
 
     private List<colorSwap> colorSwapList;
 
@@ -84,6 +97,8 @@ public class ApplyCharacterCustomisation : MonoBehaviour
         ProcessArms();
 
         ProcessTrousers();
+
+        ProcessHair();
 
         MergeCustomisations();
     }
@@ -161,6 +176,21 @@ public class ApplyCharacterCustomisation : MonoBehaviour
         // Apply texture changes
         farmerBaseCustomised.Apply();
 
+    }
+
+    private void ProcessHair()
+    {
+        // Create Selected Hair Texture
+        AddHairToTexture(inputHairStyleNo);
+
+        // Get hair pixels to recolor
+        Color[] farmerSelectedHairPixels = hairCustomised.GetPixels();
+
+        // Tint hair pixels
+        TintPixelColors(farmerSelectedHairPixels, inputHairColor);
+
+        hairCustomised.SetPixels(farmerSelectedHairPixels);
+        hairCustomised.Apply();
     }
 
     private void MergeCustomisations()
@@ -261,6 +291,20 @@ public class ApplyCharacterCustomisation : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void AddHairToTexture(int hairStyleNo)
+    {
+        // Calculate coordinates for hair pixels
+        int y = (hairStyleNo / hairStylesInSpriteWidth) * hairTextureHeight;
+        int x = (hairStyleNo % hairStylesInSpriteWidth) * hairTextureWidth;
+
+        // Get hair pixels
+        Color[] hairPixels = hairBaseTexture.GetPixels(x, y, hairTextureWidth, hairTextureHeight);
+
+        // Apply selected hair pixels to texture
+        hairCustomised.SetPixels(hairPixels);
+        hairCustomised.Apply();
     }
 
 

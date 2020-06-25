@@ -7942,6 +7942,7 @@ MonoBehaviour:
   hairCustomised: {fileID: 2800000, guid: 3fdea510f6c395642bec63c0e92feb05, type: 3}
   inputShirtStyleNo: 0
   inputHairStyleNo: 1
+  inputSkinType: 0
   inputSex: 0
   inputHairColor: {r: 0.5849056, g: 0.44555527, b: 0.12967247, a: 1}
   inputTrouserColor: {r: 0.19680746, g: 0.4339623, b: 0.055268783, a: 1}

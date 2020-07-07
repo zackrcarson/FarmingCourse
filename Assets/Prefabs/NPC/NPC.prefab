@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 7621523010318399235}
   - component: {fileID: 822025006144921817}
   - component: {fileID: 500934868706460713}
+  - component: {fileID: -3732239917057992268}
+  - component: {fileID: -1488102964683582334}
+  - component: {fileID: -3200824773753739677}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -164,3 +167,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gUID: 
+--- !u!114 &-3732239917057992268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112546833451377613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d340fb085cecf4881ac85d5dc43763, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1488102964683582334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112546833451377613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a804da63278afa84188cbc4013ba9e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcCurrentScene: 0
+  npcTargetScene: 0
+  npcCurrentGridPosition: {x: 0, y: 0, z: 0}
+  npcTargetGridPosition: {x: 0, y: 0, z: 0}
+  npcTargetWorldPosition: {x: 0, y: 0, z: 0}
+  npcFacingDirectionAtDestination: 0
+  npcNormalSpeed: 2
+  npcMinSpeed: 1
+  npcMaxSpeed: 3
+  npcTargetAnimationClip: {fileID: 0}
+  blankAnimation: {fileID: 7400000, guid: de73329f78eb6d645a9a70faf2bddfce, type: 2}
+  npcActiveInScene: 0
+--- !u!114 &-3200824773753739677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112546833451377613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfaad95a66c18d449abe03e68f82974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

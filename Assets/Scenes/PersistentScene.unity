@@ -14891,6 +14891,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3596702584789329634, guid: 6e47b6c81397ad84a8ce343f81c404d8,
+        type: 3}
+      propertyPath: so_NPCScheduleEventList
+      value: 
+      objectReference: {fileID: 11400000, guid: 90d069e8df951784e863a40566f17753,
+        type: 2}
     - target: {fileID: 6383086115898065748, guid: 6e47b6c81397ad84a8ce343f81c404d8,
         type: 3}
       propertyPath: m_Sprite
@@ -16016,6 +16022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674a84eea0f007440b376dc92a78871c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeather: 0
 --- !u!4 &2094441509
 Transform:
   m_ObjectHideFlags: 0
